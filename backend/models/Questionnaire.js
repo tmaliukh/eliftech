@@ -24,10 +24,10 @@ const questionnaireSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  // number: {
-  //   type: Number,
-  //   required: true
-  // },
+  number: {
+    type: Number,
+    required: true
+  },
   questions: [questionSchema],
   createdAt: {
     type: Date,

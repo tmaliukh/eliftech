@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
     const skip = (page - 1) * limit;
 
     const questionnaires = await Questionnaire.find()
-    .sort({ number: 1 })
+    .sort({ createdAt: -1 })
     .skip(skip)
       .limit(limit);
     
@@ -88,7 +88,8 @@ router.post('/', async (req, res) => {
     const questionnaire = new Questionnaire({
       title,
       description,
-      questions
+      questions,
+      number: (await Questionnaire.findOne().sort({ number: -1 }))?.number || 0 + 1
     });
 
     const newQuestionnaire = await questionnaire.save();

@@ -174,7 +174,7 @@ export default function QuestionnaireBuilder() {
       }
 
       const data = await response.json();
-      navigate(`/run/${data._id}`);
+      navigate('/');
     } catch (err) {
       setError(err.message);
     } finally {

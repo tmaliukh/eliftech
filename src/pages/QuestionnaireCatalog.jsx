@@ -21,6 +21,7 @@ export default function QuestionnaireCatalog() {
       }
 
       const data = await response.json();
+      console.log('Fetched questionnaires:', data);
       setQuestionnaires(data.questionnaires);
       setTotalPages(data.totalPages);
     } catch (err) {
