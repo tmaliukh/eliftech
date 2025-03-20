@@ -76,12 +76,12 @@ export default function InteractiveQuestionnaire() {
         return;
       }
 
-      const completionTime = (Date.now() - startTime) / 1000; // in seconds
+      const completionTime = (Date.now() - startTime) / 1000; 
       
       try {
         const formattedAnswers = Object.entries(answers).map(([questionId, value]) => ({
           questionId,
-          value: Array.isArray(value) ? value : [value] // Ensure value is always an array
+          value: Array.isArray(value) ? value : [value] 
         }));
 
         const response = await fetch(`${import.meta.env.VITE_API_URL}/api/responses`, {
