@@ -11,26 +11,7 @@ dotenv.config({
 
 const app = express();
 
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://eliftechfront.vercel.app');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, Origin, Accept, X-Requested-With');
-  res.setHeader('Access-Control-Allow-Credentials', 'true');
-  res.setHeader('Access-Control-Max-Age', '3600');
-
-  if (req.method === 'OPTIONS') {
-    console.log('Handling OPTIONS request');
-    res.status(204).end();
-    return;
-  }
-
-  console.log(`${req.method} ${req.url}`, {
-    origin: req.headers.origin,
-    headers: req.headers
-  });
-
-  next();
-});
+app.use(cors())
 
 app.use(express.json());
 
