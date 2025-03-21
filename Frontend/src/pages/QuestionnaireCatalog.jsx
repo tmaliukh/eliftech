@@ -13,7 +13,12 @@ export default function QuestionnaireCatalog() {
     try {
       setIsLoading(true);
       setError(null);
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/questionnaires?page=${page}&limit=9`);
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/questionnaires?page=${page}&limit=9`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
       
       if (!response.ok) {
         const data = await response.json();
