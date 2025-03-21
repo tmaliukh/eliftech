@@ -15,8 +15,8 @@ dist-ssr
 backend/scripts/*
 backend/.env
 backend/.env.production
-.env
-.env.production
+Frotend/.env
+Frotend.env.production
 
 # Editor directories and files
 .vscode/*

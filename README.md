@@ -1,15 +1,4 @@
-
-
-
 Base level
-
-
-
-
-
-
-
-
 
 // Questionnaires
 POST /api/questionnaires - Create a new questionnaire
