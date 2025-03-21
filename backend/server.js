@@ -11,8 +11,20 @@ dotenv.config({
 
 const app = express();
 
-app.use(cors());
+const corsOptions = {
+  origin: ['https://eliftechfront.vercel.app', 'http://localhost:5173'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true,
+  optionsSuccessStatus: 200
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
+
+app.get('/', (req, res) => {
+  res.json({ message: 'Server is running!' });
+});
 
 app.use('/api/questionnaires', questionnaireRoutes);
 app.use('/api/responses', responseRoutes);
